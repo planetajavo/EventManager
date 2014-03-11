@@ -1,0 +1,19 @@
+<%= form_for @event do |f| %>
+	<%= f.label :'Event name' %>
+	<%= f.text_field :name %>
+	<br>
+	<%= f.label :'Start date' %>
+	<%= f.date_field :start_at %>
+	<br>
+	<%= f.label :'End date' %>
+	<%= f.date_field :end_at %>
+	<br>
+	<%= f.label :'Event place' %>
+	<%= f.text_field :address %>
+	<br>
+	<%= f.label :'Event description' %>
+	<%= f.text_area :description %>
+	<br>
+	<%= link_to 'Cancel', events_path, class: 'button' %>
+  <%= f.submit 'Create event', class: 'button' %>
+<% end %>
