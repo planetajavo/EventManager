@@ -26,4 +26,7 @@ Ironevents::Application.configure do
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
+
+  #Lo hemos añadido para Devise en produccion sería igual pero apuntando a nuestro dominio
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
 end

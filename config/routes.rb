@@ -1,5 +1,11 @@
 Ironevents::Application.routes.draw do
 
+  
+  devise_for :users
+  
+  #redireccionamos, cuando el user se autentifica lo mandamos al index por ej
+  root :to => "events#index"
+
   resources :events
 
   # The priority is based upon order of creation: first created -> highest priority.
