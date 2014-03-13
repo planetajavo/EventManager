@@ -12,15 +12,25 @@ class EventsController < ApplicationController
 
   def new
     @event = Event.new
+    authorize @event
   end
 
   def create
-    Event.create(create_params)
-    redirect_to events_path
+    @event = Event.create(create_params)
+    @event.user = current_user  #current_user es un helper de device
+    authorize @event
+
+    if @event.save
+      redirect_to event_path(@event.id)
+    # es lo mismo que :  redirect_to @event
+    else
+      render 'new'
+    end
   end
 
   def edit
     @event = Event.find(params[:id])
+    authorize @event
   end
 
   def update

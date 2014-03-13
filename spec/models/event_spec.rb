@@ -80,6 +80,15 @@ describe Event do
 			expect(Event.start_today).to eq([])
 		end
 	end
+
+	describe 'organizer' do
+		it 'is mandatory' do
+			event = Event.new user: nil
+			expect(event).to have(1).error_on(:user)
+
+		end
+	end
+
 end
 
   

@@ -1,11 +1,17 @@
 class Event < ActiveRecord::Base
+
+	belongs_to :user
+
 	validates :name, presence: true, length: {maximum: 60}
 	validates	:description, length: {minimum: 100 }, allow_blank: true
-
 	validate :start_at_is_present
+
+	validates :user, presence: true
 
 	validate :end_date_consistency
 	#ojo se pone validate sin s cuando queremos hacer la validación custom
+
+	
 	
 	scope :start_today, lambda {
 			where(["start_at = ?", Date.today])

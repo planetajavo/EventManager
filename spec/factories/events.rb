@@ -7,6 +7,8 @@ FactoryGirl.define do
   	description "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt, numquam, sit, distinctio ratione ad eos similique maiores excepturi praesentium totam ea nesciunt ab. Nulla, optio, ab quas natus expedita qui."
   	start_at 1.day.from_now
   	end_at 2.day.from_now
+  	
+  	association :user
 
 
   end
