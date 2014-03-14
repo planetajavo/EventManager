@@ -56,5 +56,5 @@ production:
   encoding: unicode
   database: ironevents_production
   pool: 5
-  username: vagrant
+  #hemos quitado la linea del user porque nos lo dice heroku
   password:
