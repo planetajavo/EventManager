@@ -6,6 +6,7 @@ class EventsController < ApplicationController
     @events = Event.start_today
     respond_to do |format|
       format.json   #{render json: @events}
+      format.html
     end
   end
 
@@ -47,6 +48,14 @@ class EventsController < ApplicationController
     @event = Event.find(params[:id])
     @event.destroy
     redirect_to events_path
+  end
+
+  def search
+    @events_filtered = Event.events_filtered(params[:term])
+    #tambien funciona sin el respond
+    respond_to do |format|
+      format.json
+    end
   end
 
   private

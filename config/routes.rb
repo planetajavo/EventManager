@@ -4,9 +4,13 @@ Ironevents::Application.routes.draw do
   devise_for :users
   
   #redireccionamos, cuando el user se autentifica lo mandamos al index por ej
-  root :to => "events#index"
+  root :to => "events#index", default: {format: 'html'}
 
-  resources :events
+  resources :events do
+    collection do
+      get 'search'
+    end
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

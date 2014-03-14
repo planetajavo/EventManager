@@ -21,6 +21,14 @@ class Event < ActiveRecord::Base
 			where(["name like ?", "%#{name}%"])
 		}
 
+		# este scope es lo mismo que un método de clase
+
+
+	def self.events_filtered(filter)
+		like = "#{filter}%"
+		where(["name like ? OR description like ?", like, like ])
+	end
+
   #scope sería lo mismo que hacer un metodo de clase
   #def self.for_today
   #	where()
